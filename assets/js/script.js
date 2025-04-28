@@ -39,9 +39,11 @@ $(document).ready(function () {
 
     // <!-- emailjs to mail contact form data -->
     $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
-
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
+        event.preventDefault(); // Moved this to the top for best practice
+    
+        emailjs.init("public_YB2BeTgLYoh9ky1gg"); // ✅ Your correct public key
+    
+        emailjs.sendForm('service_sckufth', 'template_contact', '#contact-form') // ✅ Your correct service ID
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById("contact-form").reset();
@@ -50,8 +52,8 @@ $(document).ready(function () {
                 console.log('FAILED...', error);
                 alert("Form Submission Failed! Try Again");
             });
-        event.preventDefault();
     });
+    
     // <!-- emailjs to mail contact form data -->
 
 });
@@ -59,7 +61,7 @@ $(document).ready(function () {
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Jigar Sable";
+            document.title = "Portfolio | chandrasekhar";
             $("#favicon").attr("href", "assets/images/favicon.png");
         }
         else {
