@@ -38,22 +38,21 @@ $(document).ready(function () {
     });
 
     // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        event.preventDefault(); // Moved this to the top for best practice
+        
+        $("#contact-form").submit(function (event) {
+            emailjs.init("rA_cZJbUxB6KTNBBy");
     
-        emailjs.init("public_YB2BeTgLYoh9ky1gg"); // ✅ Your correct public key
-    
-        emailjs.sendForm('service_sckufth', 'template_contact', '#contact-form') // ✅ Your correct service ID
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-    });
-    
+            emailjs.sendForm('chanduport', 'template_contact', '#contact-form')
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById("contact-form").reset();
+                    alert("Form Submitted Successfully");
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    alert("Form Submission Failed! Try Again");
+                });
+            event.preventDefault();
+        });
     // <!-- emailjs to mail contact form data -->
 
 });
