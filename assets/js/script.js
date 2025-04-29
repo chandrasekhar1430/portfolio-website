@@ -42,7 +42,7 @@ $(document).ready(function () {
         $("#contact-form").submit(function (event) {
             emailjs.init("rA_cZJbUxB6KTNBBy");
     
-            emailjs.sendForm('chanduport', 'template_contact', '#contact-form')
+            emailjs.sendForm('chanduport', 'template_cvvy3sr', '#contact-form')
                 .then(function (response) {
                     console.log('SUCCESS!', response.status, response.text);
                     document.getElementById("contact-form").reset();
